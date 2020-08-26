@@ -9,6 +9,5 @@ defmodule NovyApi.Repo.Migrations.CreateAuthProviders do
 
       timestamps()
     end
-
   end
 end

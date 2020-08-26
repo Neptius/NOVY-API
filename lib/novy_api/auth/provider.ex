@@ -13,7 +13,6 @@ defmodule NovyApi.Auth.Provider do
     timestamps()
   end
 
-
   @doc """
   Returns the list of providers.
 
