@@ -35,6 +35,7 @@ defmodule NovyApiWeb.Schema.Auth.Provider do
     field(:name, :text_generic_exp)
     field(:method, :text_generic_exp)
     field(:active, :boolean_generic_exp)
+    field(:auth_provider_config, :auth_provider_config_exp)
   end
 
   input_object :auth_provider_order_by do

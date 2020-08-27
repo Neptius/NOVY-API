@@ -1,18 +1,12 @@
 defmodule NovyApi.Auth.Provider do
   use Ecto.Schema
+
   import Ecto.Changeset
+  import Ecto.Query
 
   alias NovyApi.Repo
   alias NovyApi.Auth.Provider
   alias NovyApi.Auth.ProviderConfig
-
-  def data() do
-    Dataloader.Ecto.new(NovyApi.Repo, query: &query/2)
-  end
-
-  def query(queryable, _params) do
-    queryable
-  end
 
   schema "auth_providers" do
     field :name, :string
@@ -22,6 +16,23 @@ defmodule NovyApi.Auth.Provider do
     has_one :auth_provider_config, ProviderConfig, foreign_key: :auth_provider_id
 
     timestamps()
+  end
+
+  def data() do
+    Dataloader.Ecto.new(NovyApi.Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
+
+
+  def list_providers(parms) do
+    IO.inspect(parms)
+
+    Provider
+    |> join(:inner, [p], assoc(p, :auth_provider_config), as: :auth_provider_config)
+    |> Repo.all()
   end
 
   @doc """

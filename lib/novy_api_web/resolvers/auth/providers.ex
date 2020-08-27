@@ -9,8 +9,7 @@ defmodule NovyApiWeb.Resolvers.Auth.Provider do
   end
 
   def list_providers(_parent, args, _resolution) do
-    IO.inspect(args)
-    {:ok, Provider.list_providers()}
+    {:ok, Provider.list_providers(args)}
   end
 
   # def create_provider(_parent, %{provider: args}, %{context: %{current_user: user}}) do
