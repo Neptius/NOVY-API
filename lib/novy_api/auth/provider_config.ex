@@ -2,7 +2,6 @@ defmodule NovyApi.Auth.ProviderConfig do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias NovyApi.Repo
   alias NovyApi.Auth.Provider
 
   schema "auth_provider_configs" do

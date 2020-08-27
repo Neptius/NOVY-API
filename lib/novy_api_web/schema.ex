@@ -8,7 +8,6 @@ defmodule NovyApiWeb.Schema do
   import_types(Schema.Auth.ProviderConfig)
 
   alias NovyApi.Auth.Provider
-  alias NovyApi.Auth.ProviderConfig
 
   def context(ctx) do
     loader =
