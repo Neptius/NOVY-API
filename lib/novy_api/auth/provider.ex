@@ -4,11 +4,22 @@ defmodule NovyApi.Auth.Provider do
 
   alias NovyApi.Repo
   alias NovyApi.Auth.Provider
+  alias NovyApi.Auth.ProviderConfig
+
+  def data() do
+    Dataloader.Ecto.new(NovyApi.Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
 
   schema "auth_providers" do
     field :name, :string
     field :method, :string
     field :active, :boolean, default: false
+
+    has_one :auth_provider_config, ProviderConfig, foreign_key: :auth_provider_id
 
     timestamps()
   end

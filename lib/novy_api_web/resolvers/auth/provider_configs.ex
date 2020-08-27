@@ -1,4 +1,4 @@
-defmodule NovyApiWeb.Resolvers.Auth.Provider do
+defmodule NovyApiWeb.Resolvers.Auth.ProviderConfig do
   alias NovyApi.Auth.Provider
 
   def provider_by_pk(_parent, %{id: id}, _resolution) do
