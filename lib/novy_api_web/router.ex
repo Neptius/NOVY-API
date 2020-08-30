@@ -14,9 +14,9 @@ defmodule NovyApiWeb.Router do
   if Mix.env() in [:dev] do
     forward "/playground", Absinthe.Plug.GraphiQL,
       schema: NovyApiWeb.Schema,
-      interface: :playground
-
-    # interface: :advanced
+      socket: NovyApiWeb.UserSocket
+      # interface: :playground
+      # interface: :advanced
   end
 
   # Enables LiveDashboard only for development

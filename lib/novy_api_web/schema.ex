@@ -29,7 +29,7 @@ defmodule NovyApiWeb.Schema do
     import_fields(:auth_provider_mutations)
   end
 
-  # subscription do
-
-  # end
+  subscription do
+    import_fields(:auth_provider_subscriptions)
+  end
 end

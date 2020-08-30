@@ -13,9 +13,11 @@ defmodule NovyApiWeb.Resolvers.Auth.Provider do
   end
 
   # def create_provider(_parent, %{provider: args}, %{context: %{current_user: user}}) do
-  def create_provider(_parent, %{provider: args}, _resolution) do
+  def create_provider(_parent, %{auth_provider: args}, _resolution) do
     case Provider.create_provider(args) do
-      {:ok, %Provider{} = provider} -> {:ok, provider}
+      {:ok, %Provider{} = provider} ->
+        Absinthe.Subscription.publish(NovyApiWeb.Endpoint, provider, auth_provider_added: "*")
+        {:ok, provider}
       {:error, changeset} -> {:error, inspect(changeset.errors)}
     end
   end

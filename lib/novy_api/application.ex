@@ -14,7 +14,9 @@ defmodule NovyApi.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: NovyApi.PubSub},
       # Start the Endpoint (http/https)
-      NovyApiWeb.Endpoint
+      NovyApiWeb.Endpoint,
+
+      {Absinthe.Subscription, NovyApiWeb.Endpoint},
       # Start a worker by calling: NovyApi.Worker.start_link(arg)
       # {NovyApi.Worker, arg}
     ]

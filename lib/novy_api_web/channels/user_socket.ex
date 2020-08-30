@@ -1,6 +1,9 @@
 defmodule NovyApiWeb.UserSocket do
   use Phoenix.Socket
 
+  use Absinthe.Phoenix.Socket,
+    schema: NovyApiWeb.Schema
+
   ## Channels
   # channel "room:*", NovyApiWeb.RoomChannel
 
